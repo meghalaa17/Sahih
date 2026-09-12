@@ -2,6 +2,8 @@ package com.sahih.callshield
 
 import android.telecom.Call
 import android.telecom.CallScreeningService
+import com.sahih.app.data.LocalRiskEngine
+import com.sahih.app.model.RiskLevel
 
 /**
  * Background call detector ("works like Truecaller"). Android routes every
@@ -29,13 +31,13 @@ class SahihCallScreeningService : CallScreeningService() {
 
         respondToCall(callDetails, response)
 
-        // TODO: launch an overlay / full-screen intent showing
-        // CallShieldScreen when isHighRisk is true, similar to how
-        // Truecaller shows its identification overlay.
+        // Android does not permit this service to show an arbitrary overlay by
+        // default. The in-app Call Shield screen exposes the supported demo
+        // flow and explains the required caller-ID role.
     }
 
     private fun lookUpNumber(number: String): Boolean {
-        // Placeholder -- wire this to the real risk-scoring backend.
-        return false
+        // Offline demo data only. This deliberately does not claim a live caller-ID lookup.
+        return LocalRiskEngine.assess(number).level == RiskLevel.HIGH
     }
 }

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sahih"
+    namespace = "com.sahih.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sahih"
+        applicationId = "com.sahih.app"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -54,11 +54,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("io.ktor:ktor-client-android:2.3.12")
-    implementation("io.ktor:ktor-client-core:2.3.12")
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-simplexml:2.11.0") // for RSS/XML
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
 
+    testImplementation("junit:junit:4.13.2")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
