@@ -73,10 +73,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    // Non-payment shared text now goes to SellerCheckScreen (the app's
+    // "check before you trust it" screen) since VerifyScreen was removed.
     private fun routeForSharedText(text: String): String {
         val lower = text.lowercase()
         val paymentSignals = listOf("rm ", "transfer", "duitnow", "bank in", "paid to", "account no", "acc no", "otp")
-        return if (paymentSignals.any { lower.contains(it) }) "checkout" else "verify"
+        return if (paymentSignals.any { lower.contains(it) }) "checkout" else "sellercheck"
     }
 }
 
@@ -87,7 +89,13 @@ private fun SahihApp(shared: SharedContent?, onConsumed: () -> Unit, viewModel: 
     LaunchedEffect(shared) {
         when (shared) {
             is SharedContent.Text -> {
-                viewModel.analyseSharedContent(shared.value)
+                if (shared.target == "sellercheck") {
+                    // Prefill the bio field; SellerCheckScreen detects this
+                    // and jumps straight to its scanning stage on compose.
+                    viewModel.sellerBioText = shared.value
+                } else {
+                    viewModel.analyseSharedContent(shared.value)
+                }
                 navController.navigate(shared.target) { launchSingleTop = true }
                 onConsumed()
             }
@@ -103,7 +111,6 @@ private fun SahihApp(shared: SharedContent?, onConsumed: () -> Unit, viewModel: 
     Scaffold(bottomBar = { SahihBottomBar(navController) }) { padding ->
         NavHost(navController, "home", Modifier.padding(padding)) {
             composable("home") { HomeScreen(navController) }
-            composable("verify") { VerifyScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
             composable("checkout") { CheckoutScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
             composable("radar") {
                 RadarScreen(

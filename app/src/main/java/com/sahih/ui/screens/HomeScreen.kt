@@ -50,7 +50,7 @@ import com.sahih.ui.theme.TextPrimary
 private data class FeatureTile(val icon: ImageVector, val title: String, val desc: String, val route: String)
 
 private val features = listOf(
-    FeatureTile(Icons.Default.Share, "Share and check", "Share from WhatsApp, IG, TikTok", "verify"),
+    FeatureTile(Icons.Default.Share, "Share and check", "Share from WhatsApp, IG, TikTok", "sellercheck"),
     FeatureTile(Icons.Default.ShoppingCart, "Checkout guard", "Catches mismatches before you pay", "checkout"),
     FeatureTile(Icons.Default.Call, "Call detector", "Runs in the background", "callshield"),
     FeatureTile(Icons.Default.FactCheck, "Reporting radar", "Evidence packs to SSM and NSRC", "radar"),
@@ -121,7 +121,7 @@ fun HomeScreen(navController: NavHostController, newsViewModel: NewsViewModel = 
                 )
                 Spacer(Modifier.height(14.dp))
                 Button(
-                    onClick = { navController.navigate("verify") },
+                    onClick = { navController.navigate("sellercheck") },
                     colors = ButtonDefaults.buttonColors(containerColor = Gold, contentColor = Ink),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier.fillMaxWidth()

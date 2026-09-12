@@ -3,6 +3,11 @@ package com.sahih.ui.screens
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -10,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,14 +32,35 @@ import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.sahih.SahihViewModel
 import com.sahih.ui.theme.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
+private enum class SellerCheckStage { INPUT, SCANNING }
+
+/**
+ * Seller credibility check. Now the app's primary "check before you trust
+ * it" flow (VerifyScreen was removed), so this also picks up staged-reveal
+ * pacing: filling the form -> brief scan -> SellerCredibilityResultScreen.
+ * If content arrived via the share sheet, sellerBioText is already
+ * populated by the time this composes, so it jumps straight to scanning.
+ */
 @Composable
 fun SellerCheckScreen(vm: SahihViewModel, onResult: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var isReadingScreenshot by remember { mutableStateOf(false) }
+    var stage by remember {
+        mutableStateOf(if (vm.sellerBioText.isNotBlank()) SellerCheckStage.SCANNING else SellerCheckStage.INPUT)
+    }
+
+    LaunchedEffect(stage) {
+        if (stage == SellerCheckStage.SCANNING) {
+            delay(1200)
+            vm.analyseSellerCredibility()
+            onResult()
+        }
+    }
 
     val pickScreenshot = rememberLauncherForActivityResult(
         ActivityResultContracts.GetContent()
@@ -55,6 +82,50 @@ fun SellerCheckScreen(vm: SahihViewModel, onResult: () -> Unit) {
         }
     }
 
+    AnimatedContent(
+        targetState = stage,
+        transitionSpec = { fadeIn(tween(250)) togetherWith fadeOut(tween(150)) },
+        label = "sellercheck-stage",
+    ) { current ->
+        when (current) {
+            SellerCheckStage.SCANNING -> ScanningStage()
+            SellerCheckStage.INPUT -> InputForm(
+                vm = vm,
+                isReadingScreenshot = isReadingScreenshot,
+                onPickScreenshot = { pickScreenshot.launch("image/*") },
+                onCheck = { stage = SellerCheckStage.SCANNING },
+            )
+        }
+    }
+}
+
+@Composable
+private fun ScanningStage() {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .padding(vertical = 80.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        CircularProgressIndicator(color = Gold)
+        Spacer(Modifier.height(16.dp))
+        Text("Scanning seller profile…", color = TextPrimary, fontSize = 14.sp, fontWeight = FontWeight.Medium)
+        Spacer(Modifier.height(4.dp))
+        Text(
+            "Checking bio text, contact info, and engagement",
+            color = TextMuted,
+            fontSize = 12.sp,
+        )
+    }
+}
+
+@Composable
+private fun InputForm(
+    vm: SahihViewModel,
+    isReadingScreenshot: Boolean,
+    onPickScreenshot: () -> Unit,
+    onCheck: () -> Unit,
+) {
     Column(
         Modifier
             .fillMaxSize()
@@ -75,7 +146,7 @@ fun SellerCheckScreen(vm: SahihViewModel, onResult: () -> Unit) {
 
         Spacer(Modifier.height(10.dp))
         OutlinedButton(
-            onClick = { pickScreenshot.launch("image/*") },
+            onClick = onPickScreenshot,
             modifier = Modifier.fillMaxWidth()
         ) {
             Icon(Icons.Default.Image, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
@@ -109,13 +180,18 @@ fun SellerCheckScreen(vm: SahihViewModel, onResult: () -> Unit) {
 
         Spacer(Modifier.height(16.dp))
         Button(
-            onClick = {
-                vm.analyseSellerCredibility()
-                onResult()
-            },
+            onClick = onCheck,
+            enabled = vm.sellerBioText.isNotBlank(),
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = Gold, contentColor = Ink)
         ) { Text("Check credibility") }
+
+        Spacer(Modifier.height(8.dp))
+        Text(
+            "You can also share a bio or profile link straight to Sahih from Instagram or Telegram.",
+            color = TextMuted,
+            fontSize = 11.sp,
+        )
     }
 }
 
