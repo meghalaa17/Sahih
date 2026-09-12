@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Sahih"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- "Cekdulu" - appears in the native Android share sheet from
+             WhatsApp, Instagram, TikTok, Telegram, etc. when sharing text -
+             a link, a seller's number, a message. Forwards into MainActivity,
+             which routes it to Verify (or Checkout if it looks like a
+             payment, via routeForSharedText()). -->
+        <activity-alias
+            android:name=".CekduluShareTarget"
+            android:targetActivity=".MainActivity"
+            android:label="Cekdulu"
+            android:icon="@mipmap/ic_launcher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- "Cekdulu Checkout" - appears in the share sheet when sharing an
+             image, e.g. a payment receipt, DuitNow QR, or transfer
+             confirmation screenshot from a banking/e-wallet app. Routes
+             straight to the Checkout (pre-checkout guard) screen. -->
+        <activity-alias
+            android:name=".CekduluCheckoutShareTarget"
+            android:targetActivity=".MainActivity"
+            android:label="Cekdulu Checkout"
+            android:icon="@mipmap/ic_launcher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- "PayGuard" - a second, separately-labeled entry point into the
+             same pre-checkout guard. Unlike "Cekdulu" (text), PayGuard
+             always routes to Checkout regardless of content, for both text
+             and image shares - e.g. a payment app or user explicitly wants
+             the payment-validity check rather than the general verifier. -->
+        <activity-alias
+            android:name=".PayGuardShareTarget"
+            android:targetActivity=".MainActivity"
+            android:label="PayGuard"
+            android:icon="@mipmap/ic_launcher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Background call-screening service. Requires the user to set Sahih
+             as their call screening app in system settings (Android 10+). -->
+        <service
+            android:name=".callshield.SahihCallScreeningService"
+            android:permission="android.permission.BIND_SCREENING_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>
