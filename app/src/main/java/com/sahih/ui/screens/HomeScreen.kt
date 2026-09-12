@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.FactCheck
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
@@ -53,6 +54,7 @@ private val features = listOf(
     FeatureTile(Icons.Default.ShoppingCart, "Checkout guard", "Catches mismatches before you pay", "checkout"),
     FeatureTile(Icons.Default.Call, "Call detector", "Runs in the background", "callshield"),
     FeatureTile(Icons.Default.FactCheck, "Reporting radar", "Evidence packs to SSM and NSRC", "radar"),
+    FeatureTile(Icons.Default.Person, "Seller check", "Score an IG/Telegram seller", "sellercheck"),
 )
 
 @Composable

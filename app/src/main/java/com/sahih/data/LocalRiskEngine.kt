@@ -1,12 +1,16 @@
 package com.sahih.data
 
+import com.sahih.model.ExtractedIdentifiers
+import com.sahih.model.RiskAssessment
+import com.sahih.model.RiskLevel
+import com.sahih.model.RiskSignal
+import com.sahih.model.SellerVerification
 import java.util.Locale
-
 /** Deterministic, offline demo analysis. It never represents government or bank data. */
 object LocalRiskEngine {
-    private val urlPattern = Regex("""https?://[^\\s<>()]+""", RegexOption.IGNORE_CASE)
-    private val phonePattern = Regex("""(?<!\\d)(?:\\+?60|0)1[0-9][ -]?\\d{3,4}[ -]?\\d{4}(?!\\d)""")
-    private val accountPattern = Regex("""(?<!\\d)\\d(?:[ -]?\\d){8,15}(?!\\d)""")
+    private val urlPattern = Regex("""https?://[^\s<>()]+""", RegexOption.IGNORE_CASE)
+    private val phonePattern = Regex("""(?<!\d)(?:\+?60|0)1[0-9][ -]?\d{3,4}[ -]?\d{4}(?!\d)""")
+    private val accountPattern = Regex("""(?<!\d)\d(?:[ -]?\d){8,15}(?!\d)""")
     private val highRiskPhones = setOf("+601123456789", "+60138894432")
     private val riskyDomainParts = listOf("butikcantikmurah", "secure-verify", "claim-reward", "maybank-secure")
     private val urgentWords = listOf("urgent", "immediately", "blocked", "verify now", "segera", "tindakan", "akan ditutup")

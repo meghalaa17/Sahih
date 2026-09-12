@@ -3,6 +3,7 @@ package com.sahih.ui.components
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Podcasts
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -27,7 +28,8 @@ private val tabs = listOf(
     TabItem("checkout", "Checkout", Icons.Default.ShoppingCart),
     TabItem("callshield", "Calls", Icons.Default.Call),
     TabItem("radar", "Radar", Icons.Default.Podcasts),
-)
+    TabItem("sellercheck", "Seller", Icons.Default.Person),
+    )
 
 @Composable
 fun SahihBottomBar(navController: NavHostController) {

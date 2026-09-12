@@ -22,7 +22,7 @@ private val reports = listOf(DemoScamReport("kedaielektronikmurah.shop", "Fake e
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)) {
         Text("Reporting radar", color = TextMuted, fontSize = 12.sp); Text("Community signals", color = TextPrimary, fontSize = 22.sp, fontWeight = FontWeight.SemiBold)
         Text("Local simulated data for the hackathon demo — not live reports.", color = TextMuted, fontSize = 11.sp, modifier = Modifier.padding(vertical = 8.dp))
-        reports.forEach { report -> Card(Modifier.fillMaxWidth().padding(vertical = 5.dp).clickable { vm.setVerificationInput(report.title); vm.analyseVerification() }, colors = CardDefaults.cardColors(containerColor = CardBg)) { Column(Modifier.padding(16.dp)) { Text(report.title, color = levelColor(report.level), fontWeight = FontWeight.SemiBold); Text(report.description, color = TextPrimary, fontSize = 13.sp); Text("${report.time} · ${report.place}", color = TextMuted, fontSize = 11.sp) } } }
+        reports.forEach { report -> Card(Modifier.fillMaxWidth().padding(vertical = 5.dp).clickable { vm.updateVerificationInput(report.title); vm.analyseVerification() }, colors = CardDefaults.cardColors(containerColor = CardBg)) { Column(Modifier.padding(16.dp)) { Text(report.title, color = levelColor(report.level), fontWeight = FontWeight.SemiBold); Text(report.description, color = TextPrimary, fontSize = 13.sp); Text("${report.time} · ${report.place}", color = TextMuted, fontSize = 11.sp) } } }
         Spacer(Modifier.height(12.dp)); OutlinedButton(onEvidence, Modifier.fillMaxWidth()) { Text("Prepare current evidence") }
     }
 }

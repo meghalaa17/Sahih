@@ -21,7 +21,7 @@ import com.sahih.ui.theme.*
         Text("Scan and verify", color = TextMuted, fontSize = 12.sp)
         Text("Verification result", color = TextPrimary, fontSize = 22.sp, fontWeight = FontWeight.SemiBold)
         Spacer(Modifier.height(12.dp))
-        OutlinedTextField(vm.verificationInput, vm::setVerificationInput, Modifier.fillMaxWidth(), label = { Text("Paste a message, link, or phone number") }, minLines = 3)
+        OutlinedTextField(vm.verificationInput, vm::updateVerificationInput, Modifier.fillMaxWidth(), label = { Text("Paste a message, link, or phone number") }, minLines = 3)
         Spacer(Modifier.height(8.dp)); Button(vm::analyseVerification, Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = Gold, contentColor = Ink)) { Text("Analyse locally") }
         Spacer(Modifier.height(16.dp))
         val color = levelColor(assessment.level)

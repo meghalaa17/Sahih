@@ -2,8 +2,8 @@ package com.sahih.callshield
 
 import android.telecom.Call
 import android.telecom.CallScreeningService
-import com.sahih.app.data.LocalRiskEngine
-import com.sahih.app.model.RiskLevel
+import com.sahih.data.LocalRiskEngine   // was com.sahih.app.data
+import com.sahih.model.RiskLevel        // was com.sahih.app.model
 
 /**
  * Background call detector ("works like Truecaller"). Android routes every
