@@ -41,235 +41,236 @@
 26-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:11:9-43
 27        android:label="Sahih"
 27-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:10:9-30
-28        android:theme="@android:style/Theme.Material.NoActionBar" >
-28-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:12:9-66
-29        <activity
-29-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:14:9-22:20
-30            android:name="com.sahih.MainActivity"
-30-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:15:13-41
-31            android:exported="true"
-31-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:16:13-36
-32            android:launchMode="singleTask" >
-32-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:17:13-44
-33            <intent-filter>
-33-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:18:13-21:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:19:17-69
-34-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:19:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:20:17-77
-36-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:20:27-74
-37            </intent-filter>
-38        </activity>
-39        <!--
-40 "PayGuard" - a second, separately-labeled entry point into the
-41             same pre-checkout guard. Unlike "Cekdulu" (text), PayGuard
-42             always routes to Checkout regardless of content, for both text
-43             and image shares - e.g. a payment app or user explicitly wants
-44             the payment-validity check rather than the general verifier.
-45        -->
-46        <activity-alias
-46-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:64:9-80:26
-47            android:name="com.sahih.PayGuardShareTarget"
-47-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:65:13-48
-48            android:exported="true"
-48-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:69:13-36
-49            android:icon="@mipmap/ic_launcher"
-49-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:68:13-47
-50            android:label="PayGuard"
-50-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:67:13-37
-51            android:targetActivity="com.sahih.MainActivity" >
-51-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:66:13-51
-52            <intent-filter>
-52-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:35:13-39:29
-53                <action android:name="android.intent.action.SEND" />
-53-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
-53-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
-54
-55                <category android:name="android.intent.category.DEFAULT" />
-55-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
-55-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
-56
-57                <data android:mimeType="text/plain" />
-57-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
-57-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
-58            </intent-filter>
-59            <intent-filter>
-59-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:52:13-56:29
-60                <action android:name="android.intent.action.SEND" />
-60-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
-60-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
-61
-62                <category android:name="android.intent.category.DEFAULT" />
-62-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
-62-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
-63
-64                <data android:mimeType="image/*" />
-64-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
-64-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
-65            </intent-filter>
-66        </activity-alias>
-67        <!--
-68 "Cekdulu Checkout" - appears in the share sheet when sharing an
-69             image, e.g. a payment receipt, DuitNow QR, or transfer
-70             confirmation screenshot from a banking/e-wallet app. Routes
-71             straight to the Checkout (pre-checkout guard) screen.
-72        -->
-73        <activity-alias
-73-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:46:9-57:26
-74            android:name="com.sahih.CekduluCheckoutShareTarget"
-74-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:47:13-55
-75            android:exported="true"
-75-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:51:13-36
-76            android:icon="@mipmap/ic_launcher"
-76-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:50:13-47
-77            android:label="Cekdulu Checkout"
-77-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:49:13-45
-78            android:targetActivity="com.sahih.MainActivity" >
-78-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:48:13-51
-79            <intent-filter>
-79-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:52:13-56:29
-80                <action android:name="android.intent.action.SEND" />
-80-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
-80-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
-81
-82                <category android:name="android.intent.category.DEFAULT" />
-82-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
-82-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
-83
-84                <data android:mimeType="image/*" />
-84-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
-84-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
-85            </intent-filter>
-86        </activity-alias>
-87        <!--
-88 "Cekdulu" - appears in the native Android share sheet from
-89             WhatsApp, Instagram, TikTok, Telegram, etc. when sharing text -
-90             a link, a seller's number, a message. Forwards into MainActivity,
-91             which routes it to Verify (or Checkout if it looks like a
-92             payment, via routeForSharedText()).
-93        -->
-94        <activity-alias
-94-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:29:9-40:26
-95            android:name="com.sahih.CekduluShareTarget"
-95-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:30:13-47
-96            android:exported="true"
-96-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:34:13-36
-97            android:icon="@mipmap/ic_launcher"
-97-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:33:13-47
-98            android:label="Cekdulu"
-98-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:32:13-36
-99            android:targetActivity="com.sahih.MainActivity" >
-99-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:31:13-51
-100            <intent-filter>
-100-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:35:13-39:29
-101                <action android:name="android.intent.action.SEND" />
-101-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
-101-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
-102
-103                <category android:name="android.intent.category.DEFAULT" />
-103-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
-103-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
-104
-105                <data android:mimeType="text/plain" />
-105-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
-105-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
-106            </intent-filter>
-107        </activity-alias>
-108
-109        <!--
-110             Background call-screening service. Requires the user to set Sahih
-111             as their call screening app in system settings (Android 10+).
-112        -->
-113        <service
-113-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:84:9-91:19
-114            android:name="com.sahih.callshield.SahihCallScreeningService"
-114-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:85:13-65
-115            android:exported="true"
-115-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:87:13-36
-116            android:permission="android.permission.BIND_SCREENING_SERVICE" >
-116-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:86:13-75
-117            <intent-filter>
-117-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:88:13-90:29
-118                <action android:name="android.telecom.CallScreeningService" />
-118-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:89:17-79
-118-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:89:25-76
-119            </intent-filter>
-120        </service>
-121
-122        <activity
-122-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
-123            android:name="androidx.compose.ui.tooling.PreviewActivity"
-123-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
-124            android:exported="true" />
-124-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
-125
-126        <provider
-126-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-127            android:name="androidx.startup.InitializationProvider"
-127-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-128            android:authorities="com.sahih.androidx-startup"
-128-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-129            android:exported="false" >
-129-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-130            <meta-data
-130-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-131                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-131-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-132                android:value="androidx.startup" />
-132-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-133            <meta-data
-133-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
-134                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-134-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
-135                android:value="androidx.startup" />
-135-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
-136            <meta-data
-136-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-137                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-137-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-138                android:value="androidx.startup" />
-138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-139        </provider>
-140
-141        <receiver
-141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-142            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-143            android:directBootAware="false"
-143-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-144            android:enabled="true"
-144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-145            android:exported="true"
-145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-146            android:permission="android.permission.DUMP" >
-146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-147            <intent-filter>
-147-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-148                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-149            </intent-filter>
-150            <intent-filter>
-150-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-151                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-152            </intent-filter>
-153            <intent-filter>
-153-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-154                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-155            </intent-filter>
-156            <intent-filter>
-156-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-157                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-158            </intent-filter>
-159        </receiver>
-160    </application>
-161
-162</manifest>
+28        android:testOnly="true"
+29        android:theme="@android:style/Theme.Material.NoActionBar" >
+29-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:12:9-66
+30        <activity
+30-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:14:9-22:20
+31            android:name="com.sahih.MainActivity"
+31-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:15:13-41
+32            android:exported="true"
+32-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:16:13-36
+33            android:launchMode="singleTask" >
+33-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:17:13-44
+34            <intent-filter>
+34-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:18:13-21:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:19:17-69
+35-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:19:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:20:17-77
+37-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:20:27-74
+38            </intent-filter>
+39        </activity>
+40        <!--
+41 "PayGuard" - a second, separately-labeled entry point into the
+42             same pre-checkout guard. Unlike "Cekdulu" (text), PayGuard
+43             always routes to Checkout regardless of content, for both text
+44             and image shares - e.g. a payment app or user explicitly wants
+45             the payment-validity check rather than the general verifier.
+46        -->
+47        <activity-alias
+47-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:64:9-80:26
+48            android:name="com.sahih.PayGuardShareTarget"
+48-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:65:13-48
+49            android:exported="true"
+49-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:69:13-36
+50            android:icon="@mipmap/ic_launcher"
+50-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:68:13-47
+51            android:label="PayGuard"
+51-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:67:13-37
+52            android:targetActivity="com.sahih.MainActivity" >
+52-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:66:13-51
+53            <intent-filter>
+53-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:35:13-39:29
+54                <action android:name="android.intent.action.SEND" />
+54-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
+54-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
+55
+56                <category android:name="android.intent.category.DEFAULT" />
+56-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
+56-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
+57
+58                <data android:mimeType="text/plain" />
+58-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
+58-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
+59            </intent-filter>
+60            <intent-filter>
+60-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:52:13-56:29
+61                <action android:name="android.intent.action.SEND" />
+61-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
+61-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
+62
+63                <category android:name="android.intent.category.DEFAULT" />
+63-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
+63-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
+64
+65                <data android:mimeType="image/*" />
+65-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
+65-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
+66            </intent-filter>
+67        </activity-alias>
+68        <!--
+69 "Cekdulu Checkout" - appears in the share sheet when sharing an
+70             image, e.g. a payment receipt, DuitNow QR, or transfer
+71             confirmation screenshot from a banking/e-wallet app. Routes
+72             straight to the Checkout (pre-checkout guard) screen.
+73        -->
+74        <activity-alias
+74-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:46:9-57:26
+75            android:name="com.sahih.CekduluCheckoutShareTarget"
+75-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:47:13-55
+76            android:exported="true"
+76-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:51:13-36
+77            android:icon="@mipmap/ic_launcher"
+77-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:50:13-47
+78            android:label="Cekdulu Checkout"
+78-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:49:13-45
+79            android:targetActivity="com.sahih.MainActivity" >
+79-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:48:13-51
+80            <intent-filter>
+80-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:52:13-56:29
+81                <action android:name="android.intent.action.SEND" />
+81-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
+81-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
+82
+83                <category android:name="android.intent.category.DEFAULT" />
+83-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
+83-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
+84
+85                <data android:mimeType="image/*" />
+85-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
+85-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
+86            </intent-filter>
+87        </activity-alias>
+88        <!--
+89 "Cekdulu" - appears in the native Android share sheet from
+90             WhatsApp, Instagram, TikTok, Telegram, etc. when sharing text -
+91             a link, a seller's number, a message. Forwards into MainActivity,
+92             which routes it to Verify (or Checkout if it looks like a
+93             payment, via routeForSharedText()).
+94        -->
+95        <activity-alias
+95-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:29:9-40:26
+96            android:name="com.sahih.CekduluShareTarget"
+96-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:30:13-47
+97            android:exported="true"
+97-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:34:13-36
+98            android:icon="@mipmap/ic_launcher"
+98-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:33:13-47
+99            android:label="Cekdulu"
+99-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:32:13-36
+100            android:targetActivity="com.sahih.MainActivity" >
+100-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:31:13-51
+101            <intent-filter>
+101-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:35:13-39:29
+102                <action android:name="android.intent.action.SEND" />
+102-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:17-69
+102-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:36:25-66
+103
+104                <category android:name="android.intent.category.DEFAULT" />
+104-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:17-76
+104-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:37:27-73
+105
+106                <data android:mimeType="text/plain" />
+106-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:17-55
+106-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:38:23-52
+107            </intent-filter>
+108        </activity-alias>
+109
+110        <!--
+111             Background call-screening service. Requires the user to set Sahih
+112             as their call screening app in system settings (Android 10+).
+113        -->
+114        <service
+114-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:84:9-91:19
+115            android:name="com.sahih.callshield.SahihCallScreeningService"
+115-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:85:13-65
+116            android:exported="true"
+116-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:87:13-36
+117            android:permission="android.permission.BIND_SCREENING_SERVICE" >
+117-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:86:13-75
+118            <intent-filter>
+118-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:88:13-90:29
+119                <action android:name="android.telecom.CallScreeningService" />
+119-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:89:17-79
+119-->C:\Users\Meghalaa J\AndroidStudioProjects\Sahih\app\src\main\AndroidManifest.xml:89:25-76
+120            </intent-filter>
+121        </service>
+122
+123        <activity
+123-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+124            android:name="androidx.compose.ui.tooling.PreviewActivity"
+124-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+125            android:exported="true" />
+125-->[androidx.compose.ui:ui-tooling-android:1.6.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\0038ef3c13e8b1a7ae95947546f2b435\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+126
+127        <provider
+127-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+128            android:name="androidx.startup.InitializationProvider"
+128-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+129            android:authorities="com.sahih.androidx-startup"
+129-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+130            android:exported="false" >
+130-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+131            <meta-data
+131-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+132                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+132-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+133                android:value="androidx.startup" />
+133-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\20f7119af19e0f6e109ea255c013b517\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+134            <meta-data
+134-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
+135                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+135-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
+136                android:value="androidx.startup" />
+136-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\60a14296b51888ba01c449c12f854f13\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
+137            <meta-data
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+138                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+139                android:value="androidx.startup" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+140        </provider>
+141
+142        <receiver
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+143            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+144            android:directBootAware="false"
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+145            android:enabled="true"
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+146            android:exported="true"
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+147            android:permission="android.permission.DUMP" >
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+148            <intent-filter>
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+149                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+150            </intent-filter>
+151            <intent-filter>
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+152                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+153            </intent-filter>
+154            <intent-filter>
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+155                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+156            </intent-filter>
+157            <intent-filter>
+157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+158                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+158-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+158-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Meghalaa J\.gradle\caches\8.13\transforms\9fd98b975abc8d822b7b83e9e30419a9\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+159            </intent-filter>
+160        </receiver>
+161    </application>
+162
+163</manifest>
