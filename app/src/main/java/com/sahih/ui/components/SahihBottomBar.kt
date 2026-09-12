@@ -26,7 +26,6 @@ private val tabs = listOf(
     TabItem("home", "Home", Icons.Default.Home),
     TabItem("verify", "Verify", Icons.Default.Search),
     TabItem("checkout", "Checkout", Icons.Default.ShoppingCart),
-    TabItem("callshield", "Calls", Icons.Default.Call),
     TabItem("radar", "Radar", Icons.Default.Podcasts),
     TabItem("sellercheck", "Seller", Icons.Default.Person),
     )

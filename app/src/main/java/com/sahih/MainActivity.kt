@@ -110,7 +110,6 @@ private fun SahihApp(shared: SharedContent?, onConsumed: () -> Unit, viewModel: 
             composable("home") { HomeScreen(navController) }
             composable("verify") { VerifyScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
             composable("checkout") { CheckoutScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
-            composable("callshield") { CallShieldScreen() }
             composable("radar") { RadarScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
             composable("evidence") { EvidenceScreen(viewModel.evidence) { navController.popBackStack() } }
             composable("sellercheck") { SellerCheckScreen(viewModel) }

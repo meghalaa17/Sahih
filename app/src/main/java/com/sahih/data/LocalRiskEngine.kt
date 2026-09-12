@@ -1,5 +1,6 @@
 package com.sahih.data
 
+import com.sahih.model.*
 import com.sahih.model.ExtractedIdentifiers
 import com.sahih.model.RiskAssessment
 import com.sahih.model.RiskLevel

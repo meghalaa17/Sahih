@@ -42,7 +42,17 @@ class SahihViewModel : ViewModel() {
 
     var credibilityResult by mutableStateOf<SellerCredibilityResult?>(null)
         private set
+    var sellerScreenshotUri by mutableStateOf<Uri?>(null)
 
+    fun setSellerScreenshot(uri: Uri?) {
+        sellerScreenshotUri = uri
+    }
+
+    fun appendExtractedBioText(text: String) {
+        if (text.isNotBlank()) {
+            sellerBioText = if (sellerBioText.isBlank()) text else "$sellerBioText\n$text"
+        }
+    }
     fun analyseSellerCredibility() {
         val input = SellerProfileInput(
             platform = sellerPlatform,

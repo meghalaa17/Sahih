@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sahih.app"
+    namespace = "com.sahih"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sahih.app"
+        applicationId = "com.sahih"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-simplexml:2.11.0")
+    implementation("com.google.mlkit:text-recognition:16.0.1")
 
     testImplementation("junit:junit:4.13.2")
     debugImplementation("androidx.compose.ui:ui-tooling")
