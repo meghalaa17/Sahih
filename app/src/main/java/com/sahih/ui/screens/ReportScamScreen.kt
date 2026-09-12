@@ -1,5 +1,7 @@
 package com.sahih.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +34,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -44,9 +47,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sahih.SahihViewModel
 import com.sahih.ui.theme.CardBg
 import com.sahih.ui.theme.Coral
 import com.sahih.ui.theme.Gold
@@ -69,11 +74,11 @@ private val scamTypeOptions = listOf(
     ScamTypeOption("Other", Icons.Default.MoreHoriz),
 )
 
-// TODO: wire this up to the real submission pipeline (SSM / NSRC 997), same
-// backend the "Submit to NSRC 997 & SSM" button on RadarScreen will call.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReportScamScreen(onBack: () -> Unit, onSubmitted: () -> Unit) {
+fun ReportScamScreen(vm: SahihViewModel, onBack: () -> Unit, onSubmitted: () -> Unit) {
+    val context = LocalContext.current
+
     var identifier by remember { mutableStateOf("") }
     var selectedType by remember { mutableStateOf<String?>(null) }
     var notes by remember { mutableStateOf("") }
@@ -238,19 +243,64 @@ fun ReportScamScreen(onBack: () -> Unit, onSubmitted: () -> Unit) {
 
         Spacer(Modifier.height(24.dp))
 
+        Text("Report to the authorities", color = TextMuted, fontSize = 12.sp)
+        Spacer(Modifier.height(8.dp))
+
         Button(
             onClick = {
-                // TODO: send identifier, selectedType, dateText, timeText, evidenceCount,
-                // and notes to the backend once the reporting API exists.
-                onSubmitted()
+                context.startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:997")))
             },
-            enabled = identifier.isNotBlank() && selectedType != null,
             colors = ButtonDefaults.buttonColors(containerColor = Coral, contentColor = TextPrimary),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Submit to NSRC 997 & SSM", fontWeight = FontWeight.SemiBold)
+            Text("Call NSRC hotline (997)", fontWeight = FontWeight.SemiBold)
         }
+
+        Spacer(Modifier.height(10.dp))
+
+        OutlinedButton(
+            onClick = {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://aduan.mcmc.gov.my/")))
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Report online via MCMC Aduan Portal")
+        }
+
+        Spacer(Modifier.height(6.dp))
+        Text(
+            "NSRC (997) is a phone hotline, best used within 24 hours of a financial loss so banks can act quickly. MCMC's portal is for reporting scam websites, ads, and online content.",
+            color = TextMuted,
+            fontSize = 11.sp,
+            modifier = Modifier.padding(top = 4.dp)
+        )
+
+        Spacer(Modifier.height(16.dp))
+
+        Button(
+            onClick = {
+                vm.addUserReport(
+                    identifier = identifier,
+                    scamType = selectedType ?: "Other",
+                    dateText = dateText,
+                    timeText = timeText,
+                )
+                onSubmitted()
+            },
+            enabled = identifier.isNotBlank() && selectedType != null,
+            colors = ButtonDefaults.buttonColors(containerColor = Gold, contentColor = Ink),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Save to my local report log", fontWeight = FontWeight.SemiBold)
+        }
+        Text(
+            "This saves your report details in-app for your own records. It does not submit anywhere automatically.",
+            color = TextMuted,
+            fontSize = 11.sp,
+            modifier = Modifier.padding(top = 6.dp)
+        )
 
         Spacer(Modifier.height(12.dp))
     }

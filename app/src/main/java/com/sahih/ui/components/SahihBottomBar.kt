@@ -1,11 +1,10 @@
 package com.sahih.ui.components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Podcasts
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ReportProblem
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -24,11 +23,11 @@ private data class TabItem(val route: String, val label: String, val icon: andro
 
 private val tabs = listOf(
     TabItem("home", "Home", Icons.Default.Home),
-    TabItem("verify", "Verify", Icons.Default.Search),
-    TabItem("checkout", "Checkout", Icons.Default.ShoppingCart),
+    TabItem("sellercheck", "CekDulu", Icons.Default.Person),
+    TabItem("checkout", "PayGuard", Icons.Default.ShoppingCart),
     TabItem("radar", "Radar", Icons.Default.Podcasts),
-    TabItem("sellercheck", "Seller", Icons.Default.Person),
-    )
+    TabItem("reportscam", "Report", Icons.Default.ReportProblem),
+)
 
 @Composable
 fun SahihBottomBar(navController: NavHostController) {

@@ -14,6 +14,15 @@ import java.util.Locale
 import com.sahih.data.SellerCredibilityEngine
 import com.sahih.model.SellerCredibilityResult
 import com.sahih.model.SellerProfileInput
+// add to imports
+import com.sahih.data.ReceiptParser
+import androidx.compose.runtime.mutableStateListOf
+import com.sahih.model.DemoScamReport
+import com.sahih.model.RiskLevel
+// add to imports
+import com.sahih.data.QrPaymentParser
+
+
 class SahihViewModel : ViewModel() {
     var verificationInput by mutableStateOf("")
         private set
@@ -44,6 +53,56 @@ class SahihViewModel : ViewModel() {
         private set
     var sellerScreenshotUri by mutableStateOf<Uri?>(null)
 
+    // add inside the class
+    var checkoutScreenshotUri by mutableStateOf<Uri?>(null)
+        private set
+    val userReports = mutableStateListOf<DemoScamReport>()
+    // add inside the class
+    var checkoutQrDetected by mutableStateOf(false)
+        private set
+
+    var checkoutQrRawValue by mutableStateOf<String?>(null)
+        private set
+
+    fun autofillCheckoutFromQr(parsed: QrPaymentParser.ParsedQr) {
+        checkoutQrDetected = true
+        checkoutQrRawValue = parsed.rawValue
+        parsed.merchantName?.let { sellerName = it }
+        parsed.amount?.let { amount = it }
+    }
+
+    fun resetCheckoutQrState() {
+        checkoutQrDetected = false
+        checkoutQrRawValue = null
+    }
+    fun addUserReport(
+        identifier: String,
+        scamType: String,
+        dateText: String,
+        timeText: String,
+    ) {
+        userReports.add(
+            0, // newest first
+            DemoScamReport(
+                title = identifier,
+                description = "$scamType — reported by you",
+                time = "$dateText, $timeText",
+                place = "Your report",
+                level = RiskLevel.HIGH
+            )
+        )
+    }
+    fun setCheckoutScreenshot(uri: Uri?) {
+        checkoutScreenshotUri = uri
+    }
+
+    fun autofillCheckoutFromOcr(rawText: String) {
+        val parsed = ReceiptParser.parse(rawText)
+        parsed.sellerName?.let { sellerName = it }
+        parsed.recipientName?.let { recipientName = it }
+        parsed.accountNumber?.let { accountNumber = it }
+        parsed.amount?.let { amount = it }
+    }
     fun setSellerScreenshot(uri: Uri?) {
         sellerScreenshotUri = uri
     }

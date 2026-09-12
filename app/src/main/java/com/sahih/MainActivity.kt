@@ -19,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import com.sahih.ui.components.SahihBottomBar
 import com.sahih.ui.screens.*
 import com.sahih.ui.theme.SahihTheme
-import com.sahih.ui.screens.SellerCheckScreen
+
 private sealed class SharedContent {
     data class Text(val value: String, val target: String) : SharedContent()
     data class Image(val uri: Uri, val target: String) : SharedContent()
@@ -50,14 +50,11 @@ class MainActivity : ComponentActivity() {
     private fun handleShareIntent(intent: Intent?) {
         if (intent == null || intent.action != Intent.ACTION_SEND) return
 
-        // The alias name that was actually tapped in the share sheet -- Android
-        // resolves the launched component to the alias itself, not to
-        // MainActivity, so this tells us which entry point the user chose.
         val aliasName = intent.component?.shortClassName.orEmpty()
         val target = when {
-            aliasName.endsWith("PayGuardShareTarget") -> "checkout" // always checkout, text or image
-            aliasName.endsWith("CekduluCheckoutShareTarget") -> "checkout" // image share -> checkout
-            aliasName.endsWith("CekduluShareTarget") -> null // text share -> decide below
+            aliasName.endsWith("PayGuardShareTarget") -> "checkout"
+            aliasName.endsWith("CekduluCheckoutShareTarget") -> "checkout"
+            aliasName.endsWith("CekduluShareTarget") -> null
             else -> null
         }
 
@@ -76,8 +73,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    /** Cekdulu (text) heuristic: does this look like a payment/checkout moment,
-     *  or a general verify-a-seller moment? */
     private fun routeForSharedText(text: String): String {
         val lower = text.lowercase()
         val paymentSignals = listOf("rm ", "transfer", "duitnow", "bank in", "paid to", "account no", "acc no", "otp")
@@ -110,9 +105,29 @@ private fun SahihApp(shared: SharedContent?, onConsumed: () -> Unit, viewModel: 
             composable("home") { HomeScreen(navController) }
             composable("verify") { VerifyScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
             composable("checkout") { CheckoutScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
-            composable("radar") { RadarScreen(viewModel) { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } } }
+            composable("radar") {
+                RadarScreen(
+                    vm = viewModel,
+                    onEvidence = { viewModel.createEvidence(); navController.navigate("evidence") { launchSingleTop = true } },
+                    onReportScam = { navController.navigate("reportscam") { launchSingleTop = true } }
+                )
+            }
             composable("evidence") { EvidenceScreen(viewModel.evidence) { navController.popBackStack() } }
-            composable("sellercheck") { SellerCheckScreen(viewModel) }
+            composable("sellercheck") {
+                SellerCheckScreen(viewModel) {
+                    navController.navigate("sellerresult") { launchSingleTop = true }
+                }
+            }
+            composable("sellerresult") {
+                SellerCredibilityResultScreen(viewModel.credibilityResult) { navController.popBackStack() }
+            }
+            composable("reportscam") {
+                ReportScamScreen(
+                    vm = viewModel,
+                    onBack = { navController.popBackStack() },
+                    onSubmitted = { navController.popBackStack() }
+                )
+            }
         }
     }
 }
